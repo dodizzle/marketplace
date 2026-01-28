@@ -65,7 +65,8 @@ When pushing, if the remote has newer changes:
 claude-md-sync/
 ├── .claude-plugin/
 │   └── plugin.json      # Plugin manifest
-├── CLAUDE.md            # Your synced CLAUDE.md content
+├── content/
+│   └── CLAUDE.md        # Your synced CLAUDE.md content
 ├── commands/
 │   ├── sync-pull.md     # Pull command
 │   └── sync-push.md     # Push command

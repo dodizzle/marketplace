@@ -2,7 +2,7 @@
 set -euo pipefail
 
 PLUGIN_DIR="${CLAUDE_PLUGIN_ROOT:-$(cd "$(dirname "$0")/.." && pwd)}"
-SOURCE_FILE="$PLUGIN_DIR/CLAUDE.md"
+SOURCE_FILE="$PLUGIN_DIR/content/CLAUDE.md"
 TARGET_DIR="$HOME/.claude"
 TARGET_FILE="$TARGET_DIR/CLAUDE.md"
 
