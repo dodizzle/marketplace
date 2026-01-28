@@ -1,0 +1,17 @@
+{
+  "description": "Auto-sync CLAUDE.md from plugin repo to ~/.claude/ on session start",
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash $CLAUDE_PLUGIN_ROOT/scripts/session-sync.sh",
+            "timeout": 15
+          }
+        ]
+      }
+    ]
+  }
+}
