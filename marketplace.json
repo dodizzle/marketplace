@@ -1,15 +1,13 @@
 {
+  "name": "dodizzle",
+  "owner": {
+    "name": "David O'Dell"
+  },
   "plugins": [
     {
       "name": "claude-md-sync",
       "description": "Sync your personal ~/.claude/CLAUDE.md across machines via git",
-      "version": "0.1.0",
-      "source": {
-        "type": "git",
-        "url": "https://github.com/dodizzle/marketplace.git"
-      },
-      "author": "David O'Dell",
-      "keywords": ["claude-md", "sync", "dotfiles", "git"]
+      "source": "./"
     }
   ]
 }
