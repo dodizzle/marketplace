@@ -6,7 +6,7 @@
       "version": "0.1.0",
       "source": {
         "type": "git",
-        "url": "https://github.com/dodizzle/claude-md-sync.git"
+        "url": "https://github.com/dodizzle/marketplace.git"
       },
       "author": "David O'Dell",
       "keywords": ["claude-md", "sync", "dotfiles", "git"]
