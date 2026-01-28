@@ -20,7 +20,25 @@ Then add to your Claude Code settings (`~/.claude/settings.json`):
 }
 ```
 
-### Option 2: Test locally (development)
+### Option 2: Install from a marketplace
+
+If this plugin is published to a marketplace, install it directly:
+
+```bash
+claude /install claude-md-sync
+```
+
+Or add the marketplace URL to your settings first if using a custom marketplace:
+
+```json
+{
+  "pluginMarketplaces": [
+    "https://raw.githubusercontent.com/<owner>/<marketplace-repo>/main/marketplace.json"
+  ]
+}
+```
+
+### Option 3: Test locally (development)
 
 ```bash
 claude --plugin-dir /path/to/claude-md-sync
@@ -84,6 +102,56 @@ claude-md-sync/
 2. **Other machines**: Clone the repo, add to Claude Code plugins
 3. **Making changes**: Edit `~/.claude/CLAUDE.md`, then run `/claude-md-sync:sync-push`
 4. **Getting changes**: Run `/claude-md-sync:sync-pull` or just start a new session (auto-syncs)
+
+## Publishing to a Marketplace
+
+To make this plugin available via `claude /install`, add it to a marketplace.json file:
+
+### 1. Create or update marketplace.json
+
+```json
+{
+  "plugins": [
+    {
+      "name": "claude-md-sync",
+      "description": "Sync your personal ~/.claude/CLAUDE.md across machines via git",
+      "version": "0.1.0",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/<owner>/claude-md-sync.git"
+      },
+      "author": "David O'Dell",
+      "keywords": ["claude-md", "sync", "dotfiles", "git"]
+    }
+  ]
+}
+```
+
+### 2. Host the marketplace
+
+Push the marketplace.json to a public git repo. The raw URL becomes your marketplace URL:
+
+```
+https://raw.githubusercontent.com/<owner>/<repo>/main/marketplace.json
+```
+
+### 3. Users add your marketplace
+
+Users add your marketplace URL to their `~/.claude/settings.json`:
+
+```json
+{
+  "pluginMarketplaces": [
+    "https://raw.githubusercontent.com/<owner>/<repo>/main/marketplace.json"
+  ]
+}
+```
+
+Then install with:
+
+```bash
+claude /install claude-md-sync
+```
 
 ## Troubleshooting
 
