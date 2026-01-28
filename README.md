@@ -7,7 +7,7 @@ Sync your personal `~/.claude/CLAUDE.md` across machines via git. Auto-syncs on 
 ### Option 1: Clone and use directly
 
 ```bash
-git clone <your-repo-url> ~/.claude-plugins/claude-md-sync
+git clone https://github.com/dodizzle/marketplace.git ~/.claude-plugins/claude-md-sync
 ```
 
 Then add to your Claude Code settings (`~/.claude/settings.json`):
@@ -33,7 +33,7 @@ Or add the marketplace URL to your settings first if using a custom marketplace:
 ```json
 {
   "pluginMarketplaces": [
-    "https://raw.githubusercontent.com/<owner>/<marketplace-repo>/main/marketplace.json"
+    "https://raw.githubusercontent.com/dodizzle/marketplace/main/marketplace.json"
   ]
 }
 ```
@@ -118,7 +118,7 @@ To make this plugin available via `claude /install`, add it to a marketplace.jso
       "version": "0.1.0",
       "source": {
         "type": "git",
-        "url": "https://github.com/<owner>/claude-md-sync.git"
+        "url": "https://github.com/dodizzle/marketplace.git"
       },
       "author": "David O'Dell",
       "keywords": ["claude-md", "sync", "dotfiles", "git"]
@@ -132,7 +132,7 @@ To make this plugin available via `claude /install`, add it to a marketplace.jso
 Push the marketplace.json to a public git repo. The raw URL becomes your marketplace URL:
 
 ```
-https://raw.githubusercontent.com/<owner>/<repo>/main/marketplace.json
+https://raw.githubusercontent.com/dodizzle/marketplace/main/marketplace.json
 ```
 
 ### 3. Users add your marketplace
@@ -142,7 +142,7 @@ Users add your marketplace URL to their `~/.claude/settings.json`:
 ```json
 {
   "pluginMarketplaces": [
-    "https://raw.githubusercontent.com/<owner>/<repo>/main/marketplace.json"
+    "https://raw.githubusercontent.com/dodizzle/marketplace/main/marketplace.json"
   ]
 }
 ```
