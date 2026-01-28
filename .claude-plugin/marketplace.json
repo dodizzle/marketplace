@@ -1,5 +1,7 @@
 {
   "name": "dodizzle",
+  "description": "David O'Dell's Claude Code plugins",
+  "version": "1.0.0",
   "owner": {
     "name": "David O'Dell"
   },
@@ -7,7 +9,7 @@
     {
       "name": "claude-md-sync",
       "description": "Sync your personal ~/.claude/CLAUDE.md across machines via git",
-      "source": "./"
+      "source": "./plugins/claude-md-sync"
     }
   ]
 }
