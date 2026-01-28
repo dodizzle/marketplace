@@ -1,0 +1,9 @@
+{
+  "name": "claude-md-sync",
+  "version": "0.1.0",
+  "description": "Syncs your personal ~/.claude/CLAUDE.md via git. Auto-copies on session start, with commands to pull and push changes.",
+  "author": {
+    "name": "David O'Dell"
+  },
+  "keywords": ["claude-md", "sync", "dotfiles", "git"]
+}
