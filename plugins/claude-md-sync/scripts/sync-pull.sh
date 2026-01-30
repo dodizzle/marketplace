@@ -2,11 +2,12 @@
 set -euo pipefail
 
 PLUGIN_DIR="${CLAUDE_PLUGIN_ROOT:-$(cd "$(dirname "$0")/.." && pwd)}"
+REPO_DIR="$(cd "$PLUGIN_DIR" && git rev-parse --show-toplevel)"
 SOURCE_FILE="$PLUGIN_DIR/content/CLAUDE.md"
 TARGET_DIR="$HOME/.claude"
 TARGET_FILE="$TARGET_DIR/CLAUDE.md"
 
-cd "$PLUGIN_DIR"
+cd "$REPO_DIR"
 
 # Check for git remote
 if ! git remote get-url origin &>/dev/null; then

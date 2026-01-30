@@ -2,12 +2,13 @@
 set -euo pipefail
 
 PLUGIN_DIR="${CLAUDE_PLUGIN_ROOT:-$(cd "$(dirname "$0")/.." && pwd)}"
+REPO_DIR="$(cd "$PLUGIN_DIR" && git rev-parse --show-toplevel)"
 SOURCE_FILE="$PLUGIN_DIR/content/CLAUDE.md"
 TARGET_DIR="$HOME/.claude"
 TARGET_FILE="$TARGET_DIR/CLAUDE.md"
 
 # Attempt git pull (warn on failure, don't block session)
-cd "$PLUGIN_DIR"
+cd "$REPO_DIR"
 if git remote get-url origin &>/dev/null; then
   if ! git pull --ff-only 2>/dev/null; then
     echo "[claude-md-sync] Warning: git pull failed (network or merge issue). Using local copy." >&2
