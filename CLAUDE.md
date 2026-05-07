@@ -4,19 +4,24 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a Claude Code plugin (`claude-md-sync`) that syncs `~/.claude/CLAUDE.md` across machines via git. It auto-syncs on session start and provides commands for manual pull/push.
+This is the `dodizzle` Claude Code plugin marketplace. Currently hosts:
+
+- **`claude-md-sync`** — Syncs `~/.claude/CLAUDE.md` across machines via git. Auto-syncs on session start, with manual pull/push commands.
+- **`deep-review`** — Read-only PR review that dispatches 12 parallel specialist subagents and never posts to GitHub.
 
 ## Architecture
 
 **Marketplace structure:**
-- `.claude-plugin/marketplace.json` — marketplace manifest listing available plugins
-- `plugins/<name>/` — each plugin in its own directory
+- `.claude-plugin/marketplace.json` — marketplace manifest listing available plugins. Bump the root `version` whenever any plugin version changes (minor for new plugins/features, patch for plugin patches).
+- `plugins/<name>/` — each plugin in its own directory.
+- Plugin entries in `marketplace.json` have only `name`, `description`, `source` — no `version` field.
 
-**Plugin structure follows Claude Code conventions (under `plugins/claude-md-sync/`):**
-- `.claude-plugin/plugin.json` — manifest with name, version, description
-- `commands/*.md` — slash commands with YAML frontmatter (`name`, `description`, `allowed-tools`)
-- `hooks/hooks.json` — event handlers (uses wrapper format: `{"hooks": {...}}`)
-- `scripts/*.sh` — bash scripts invoked by commands and hooks
+**Plugin structure follows Claude Code conventions:**
+- `.claude-plugin/plugin.json` — manifest with name, version, description, author, keywords
+- `commands/*.md` — slash commands with YAML frontmatter (`description`, `argument-hint`, `allowed-tools`)
+- `hooks/hooks.json` — event handlers, wrapper format: `{"hooks": {...}}` (only used by plugins that need them — e.g. `claude-md-sync`)
+- `scripts/*.sh` — bash scripts invoked by commands and hooks (only used by plugins that need them)
+- `README.md` — per-plugin documentation with install + commands
 
 **Data flow:**
 - `plugins/claude-md-sync/content/CLAUDE.md` is the git-tracked copy of user's personal settings

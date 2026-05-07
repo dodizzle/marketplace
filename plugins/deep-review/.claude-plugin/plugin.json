@@ -1,0 +1,9 @@
+{
+  "name": "deep-review",
+  "version": "0.1.0",
+  "description": "Deep parallel PR review — 12 specialist angles, fully standalone, never posts to GitHub",
+  "author": {
+    "name": "David O'Dell"
+  },
+  "keywords": ["pr-review", "code-review", "read-only", "parallel", "subagents"]
+}
