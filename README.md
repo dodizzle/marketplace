@@ -1,4 +1,17 @@
-# claude-md-sync
+# dodizzle marketplace
+
+David O'Dell's Claude Code plugins.
+
+## Plugins
+
+| Plugin | Version | Description |
+|--------|---------|-------------|
+| [claude-md-sync](plugins/claude-md-sync/) | 0.1.0 | Sync your personal `~/.claude/CLAUDE.md` across machines via git |
+| [deep-review](plugins/deep-review/README.md) | 0.1.0 | Read-only PR review — 12 parallel specialist subagents, never posts to GitHub |
+
+---
+
+## claude-md-sync
 
 Sync your personal `~/.claude/CLAUDE.md` across machines via git. Auto-syncs on session start, with commands to pull and push changes.
 
@@ -102,6 +115,25 @@ claude-md-sync/
 2. **Other machines**: Clone the repo, add to Claude Code plugins
 3. **Making changes**: Edit `~/.claude/CLAUDE.md`, then run `/claude-md-sync:sync-push`
 4. **Getting changes**: Run `/claude-md-sync:sync-pull` or just start a new session (auto-syncs)
+
+## deep-review
+
+Read-only PR review that dispatches 12 specialist subagents in parallel and never posts to GitHub. The command's `allowed-tools` allowlist explicitly omits every GitHub-write tool, and every report ends with `Posts attempted: 0`. See [plugins/deep-review/README.md](plugins/deep-review/README.md) for full details.
+
+### Installation
+
+```
+/plugin install deep-review@dodizzle/marketplace
+```
+
+### Usage
+
+```
+/deep-review:deep-review              # review the PR for the current branch
+/deep-review:deep-review 1234         # review PR #1234
+/deep-review:deep-review feat/foo     # review the PR associated with branch feat/foo
+/deep-review:deep-review --staged     # review uncommitted staged changes vs HEAD
+```
 
 ## Publishing to a Marketplace
 
